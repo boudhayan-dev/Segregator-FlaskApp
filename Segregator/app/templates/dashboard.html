@@ -4,7 +4,7 @@
 <h2>DASHBOARD</h2>
 {% if folders %}
 <br>
-<span>PLease select the following dates to view the corresponding test results</span>
+<span>PLease select the following dates to view their corresponding test results</span>
 <br><br>
 {% for folder in folders %}
 	<a href="{{ url_for('image',im=folder) }}">{{  url_for('image', im=folder)  }}</a>
