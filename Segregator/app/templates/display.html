@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<hr>
+<a href="{{ url_for('image',im=files[0:3]) }}">Back</a>
+<br><br>
+<table>
+	<tr>
+		<td>
+			<img src="{{ url_for('static',filename=files) }}  " width={{ width }} height={{ height }} >
+		</td>
+		<td valign="top" width="300" align='center'>
+			<span>Filename- {{ files }}</span>
+			<hr>
+			<span>Bio - 0.555 %</span>
+			<hr>
+			<span>Non-bio - 99.55%</span>
+			<hr>
+			<span>Date - 02/04/2018</span>
+		</td>
+	</tr>
+</table>
+
+
+
+
+{% endblock %}

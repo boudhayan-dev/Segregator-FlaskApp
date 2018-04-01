@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<hr>
+<h2>DASHBOARD</h2>
+{% if folders %}
+<br>
+<span>PLease select the following dates to view the corresponding test results</span>
+<br><br>
+{% for folder in folders %}
+	<a href="{{ url_for('image',im=folder) }}">{{  url_for('image', im=folder)  }}</a>
+	<br>
+{% endfor %}
+{% endif %}
+
+{% if images %}
+<a href="{{ url_for('dashboard') }}">Back</a>
+<br><br>
+{% set ns = namespace(counter=0) %}
+<table>
+	{% for row in range(rows) %}
+	<tr>
+		{% for data in range(3) %}
+		
+			{% if ns.counter  < images|length %}
+				<td>
+					<a href="{{ url_for('display',file=images[ns.counter][4:],folder=images[ns.counter][0:4]) }}"><img src="{{ url_for('static',filename=images[ns.counter]) }}" alt="User Image" width="100" height="100"></a>
+					<br>
+					{% set ns.counter = ns.counter + 1 %}
+				</td>
+			{% endif %}
+		
+		{% endfor %}
+	</tr>
+	{% endfor %}
+
+</table>
+{% endif %}
+
+
+{% endblock %}
