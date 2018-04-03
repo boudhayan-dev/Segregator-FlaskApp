@@ -1,0 +1,32 @@
+#signin{
+	font-size: 60px;
+	font-family: 'Saira',sans-serif;
+	text-align: center;
+}
+#form{
+	font-size: 20px;
+	font-family: 'Saira',sans-serif;
+	margin-left: 25%;
+	color: black;
+}
+.form-fields{
+	width: 600px;
+	height: 30px;
+	border-radius: 3px;
+	border-width: 1px;
+}
+#submit-field{
+	text-align: center;
+	font-family: 'Saira',sans-serif;
+	
+}
+.submit-button-login{
+	border-radius: 15px;
+	border-width: 1px;
+	height: 40px;
+	width: 300px;
+	background-color: #e6f7f7;
+	font-family: 'Saira',sans-serif;
+	font-size: 25px;
+
+}

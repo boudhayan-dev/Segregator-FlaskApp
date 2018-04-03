@@ -1,24 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>FEEDBACK</h1>
-<form action="" method="post">
-	{{ form.hidden_tag() }}
-	<p>
-            {{ form.name.label }}<br>
-            {{ form.name(size=44) }}<br>
-            {% for error in form.name.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-    </p>
-    <p>
-            {{ form.feedback.label }}<br>
-            {{ form.feedback(size=1000) }}<br>
-            {% for error in form.feedback.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-    </p>
-    <p>{{ form.submit() }}</p>
-</form>
+<br><br>
+<div class="container">
+    <div class="row " >
+        <div class="col-md-12">
+            <div class="jumbotron test-jumbotron">
+                <h1>FEEDBACK</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="col-md-12">
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <table class="table">
+                    <tr>
+                        <td>
+                            {{ form.feedback(rows='5',cols='135') }}
+                            {% for error in form.feedback.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}  
+                        </td>
+                        <td>
+                            <br><br>
+                            {{ form.submit(class_='submit-button') }}
+                        </td>
+                    </tr>
+                </table>       
+            </form>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% if posts|length > 0 %}
+                {% for post in posts %}
+                    {% set clr= ["#0d83e5","#d81c2f","#1ece0e","#c00ad1","#0be8ad"]|random %}
+                    <font color={{ clr }}><span id="username"><strong>{{ post.author.username|striptags }}</strong></span></font> said <strong>{{ moment(post.timestamp).fromNow() }}</strong>:<br>
+                    <span id="user-message">{{ post.feedback }}</span></font>
+                    <br><br>
+                {% endfor %}
+                {% if prev_url %}
+                <a href="{{ prev_url }}" id="pagination">PREVIOUS <span class="glyphicon glyphicon-backward" aria-hidden="true"></span></a>
+                {% endif %}
+                {% if next_url %}
+
+                <a href="{{ next_url }}" id="pagination">NEXT <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></a>
+                {% endif %}
+            {% endif %}
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+
 
 
 {% endblock %}

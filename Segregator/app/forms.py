@@ -15,6 +15,7 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    passkey = PasswordField('Pass Key', validators=[DataRequired()])
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -28,6 +29,5 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
 
 class FeedbackForm(FlaskForm):
-    name=StringField('Name',validators=[DataRequired()])
     feedback = TextAreaField('Feedback', validators=[Length(min=0, max=500)])
     submit = SubmitField('Submit')

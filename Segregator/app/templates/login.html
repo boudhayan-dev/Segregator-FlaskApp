@@ -1,28 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Sign In</h1>
-<form action="" method="post">
-	{{ form.hidden_tag() }}
-	<p>
-		{{ form.username.label }}<br>
-		{{ form.username(size=32) }}<br>
-		{% for error in form.username.errors %}
-		<span style="color: red;">[{{ error }}]</span>
-		{% endfor %}
-	</p>
-	<p>
-		{{ form.password.label }}<br>
-        {{ form.password(size=32) }}<br>
-        {% for error in form.password.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
-	</p>
-	<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-	<p>{{ form.submit() }}</p>
+
+
+<br><br><hr>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 id="signin">
+				Sign In !
+			</h1>
+			<hr>
+		</div>
+	</div>
+	<form action="" method="post">
+	<div class="row">
+		<div class="col-md-12" id="form">
+			
+				{{ form.hidden_tag() }}
+				<p>
+					{{ form.username.label }}<br>
+					{{ form.username(size=32 , class_='form-fields') }}<br>
+					{% for error in form.username.errors %}
+					<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ form.password.label }}<br>
+			        {{ form.password(size=32 , class_='form-fields') }}<br>
+			        {% for error in form.password.errors %}
+			        <span style="color: red;">[{{ error }}]</span>
+			        {% endfor %}
+				</p>
+				<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+				
+		</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p id="submit-field">{{ form.submit(class_='submit-button-login') }}</p>
+
+			</div>
+		</div>
+	</form>
+	<div class="row">
+		<div class="=col-md-12">
+			<span id='submit-field'><p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p></span>
+		</div>
+	</div>
 	
-</form>
-<p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+</div>
+
+
 
 
 {% endblock %}

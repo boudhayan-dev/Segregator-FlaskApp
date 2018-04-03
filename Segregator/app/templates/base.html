@@ -1,27 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {{ moment.include_jquery() }}
+    {{ moment.include_moment() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/base.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/about.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/dashboard.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/display.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/feedback.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/login.css') }}">
+    
+    <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
 	{% if title %}
-    {% block head %}{% endblock %}
 	<title>{{ title }}</title>
 	{% else %}
 	<title>Welcome_segregator</title>
 	{% endif %}
 </head>
 <body>
-	 <div>
-            Welcome:
-            <a href="{{ url_for('index') }}">{{ current_user.username }}</a>
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('dashboard') }}">Dashboard</a>
-            <a href="{{ url_for('about') }}">About Us</a>
-            <a href="{{ url_for('feedback') }}">Feedback</a>
-            {% if current_user.is_anonymous %}
-            <a href="{{ url_for('login') }}">Login</a>
+
+    
+  
+    <nav class="navbar navbar-fixed-top  navbar-custom">
+    <div class="container" >
+    <div class="navbar-header">
+        
+            {% if current_user.username %}
+            <a class="navbar-brand" href="{{ url_for('index') }}" ><span id="header"><span id="logo"><strong>Welcome </strong></span>{{ current_user.username|striptags }} !</span></a>
             {% else %}
-            <a href="{{ url_for('logout') }}">Logout</a>
+            <a class="navbar-brand" href="{{ url_for('index') }}"><span id="header"><span id="logo"><strong>Welcome </strong></span></span></a>
             {% endif %}
-        </div>
+    </div>
+    <ul class="nav navbar-nav navbar-right " >
+            <li><a class="nav navbar-nav" href="{{ url_for('index') }}"><span class="glyphicon glyphicon-home blue"> <span id="header"><strong>Home</strong></span></a></li>
+            <li><a class="nav navbar-nav" href="{{ url_for('dashboard') }}"><span class="glyphicon glyphicon-dashboard"> <span id="header"><strong>Dashboard</strong></span></a></li>
+            <li><a class="nav navbar-nav" href="{{ url_for('about') }}"><span class="glyphicon glyphicon-user"> <span id="header"><strong>About Us</strong></span></a></li>
+            <li><a class="nav navbar-nav" href="{{ url_for('feedback') }}"><span class="glyphicon glyphicon-pencil"> <span id="header"><strong>Feedback</strong></span></a></li>
+            {% if current_user.is_anonymous %}
+            <li><a class="nav navbar-nav" href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"> <span id="header"><strong>Login</strong></span></a></li>
+            {% else %}
+            <li><a class="nav navbar-nav" href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-off"> <span id="header"><strong>Logout</strong></span></a></li>
+            {% endif %}
+        
+    </ul>
+      </div>
+    </nav>
+
+
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
@@ -32,6 +61,8 @@
         {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
+
+
 
 </body>
 </html>

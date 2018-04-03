@@ -1,26 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 <hr>
-<a href="{{ url_for('image',im=files[0:3]) }}">Back</a>
-<br><br>
-<table>
-	<tr>
-		<td>
-			<img src="{{ url_for('static',filename=files) }}  " width={{ width }} height={{ height }} >
-		</td>
-		<td valign="top" width="300" align='center'>
-			<span>Filename- {{ files }}</span>
-			<hr>
-			<span>Bio - 0.555 %</span>
-			<hr>
-			<span>Non-bio - 99.55%</span>
-			<hr>
-			<span>Date - 02/04/2018</span>
-		</td>
-	</tr>
-</table>
 
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+		  		<div class="jumbotron test-jumbotron">
+		  			<h1>TEST RESULTS</h1>
+				</div>
+		</div> 
+	</div>
+	<div class="row top-row">
+		<div class="col-md-12">
+			<a href="{{ url_for('image',im=files[0:10]) }}"> <span class="glyphicon glyphicon-backward" aria-hidden="true"></span></a>
+		</div>
+	</div>
+	<br><br>
+	<div class="row">
+		<div class="col-md-8">
+			
+			<img src="{{ url_for('static',filename=files) }}  " width=750 height=400 >
+		</div >
+		<div class="col-md-4">
+			<ul class="list-group" id="file-details">
+			  <li class="list-group-item ">Filename- {{ files }}</li>
+			  <li class="list-group-item ">Bio - 0.555 %</li>
+			  <li class="list-group-item ">Non-bio - 99.55%</li>
+			  <li class="list-group-item ">Date - 02/04/2018</li>
+			  <li class="list-group-item ">Time - 10-05 AM</li>
+			</ul>
 
+	</div>
+</div>
 
+<br><hr>
+</div>
 
 {% endblock %}

@@ -1,0 +1,16 @@
+.jumbotron{
+	text-align: center;
+	font-family: 'Saira', sans-serif;
+	background-color: #6cd8bd;
+	color: #04141c;
+}
+#introduction{
+	font-size: 21px;
+	font-family: 'Saira', sans-serif;
+	text-align: justify;
+	color: black;
+	font-style: bold;
+
+}
+
+

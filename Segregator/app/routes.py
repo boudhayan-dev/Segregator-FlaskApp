@@ -6,7 +6,6 @@ from app import app, db
 from app.forms import LoginForm,RegistrationForm,FeedbackForm
 from app.models import User,Feedback
 import os,math
-from PIL import Image
 
 
 @app.route('/display')
@@ -15,15 +14,16 @@ def display():
 	filename=request.args.get('file')
 	foldername=request.args.get('folder')
 	filename=foldername+filename
-	width,height=(Image.open(os.path.join(app.static_folder,filename))).size
-	return render_template('display.html',files=filename,width=width,height=height)
+	return render_template('display.html',files=filename)
 
 
 @app.route('/dashboard')
 @login_required
 def dashboard():
 	folders=[i for i in  os.listdir(os.path.join(app.static_folder))]
-	return render_template('dashboard.html',folders=folders)
+	folders.remove('styles')
+	rows=len(folders)
+	return render_template('dashboard.html',folders=folders,rows=rows)
 
 
 @app.route('/image/<im>')
@@ -69,12 +69,15 @@ def register():
 		return redirect(url_for('index'))
 	form = RegistrationForm()
 	if form.validate_on_submit():
-		user = User(username=form.username.data, email=form.email.data)
-		user.set_password(form.password.data)
-		db.session.add(user)
-		db.session.commit()
-		flash('Congratulations, you are now a registered user!')
-		return redirect(url_for('login'))
+		if form.passkey.data==app.config['REGISTRATION_KEY']:
+			user = User(username=form.username.data, email=form.email.data)
+			user.set_password(form.password.data)
+			db.session.add(user)
+			db.session.commit()
+			flash('Congratulations, you are now a registered user!')
+			return redirect(url_for('login'))
+		flash('Invalid Passkey!')
+		return redirect(url_for('register'))
 	return render_template('register.html', title='Register', form=form)
 
 @app.route("/about",methods=['GET', 'POST'])
@@ -87,7 +90,13 @@ def about():
 def feedback():
 	form=FeedbackForm()
 	if form.validate_on_submit():
+		msg=Feedback(feedback=form.feedback.data,author=current_user)
+		db.session.add(msg)
+		db.session.commit()
 		flash('Message sent succesfully!')
 		return redirect(url_for('feedback'))
-
-	return render_template('feedback.html',form=form)
+	page = request.args.get('page', 1, type=int)
+	msgs = Feedback.query.order_by(Feedback.timestamp.desc()).paginate(page,6 , False) # 6 is the posts per page
+	next_url = url_for('feedback', page=msgs.next_num) if msgs.has_next else None
+	prev_url = url_for('feedback', page=msgs.prev_num) if msgs.has_prev else None
+	return render_template('feedback.html',form=form,posts=msgs.items,next_url=next_url, prev_url=prev_url)
