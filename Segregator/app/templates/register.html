@@ -33,6 +33,12 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
             <br>
+            {{ form.password2.label }}<br>
+            {{ form.password2(size=32, class_='form-fields') }}<br>
+            {% for error in form.password2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br>
             {{ form.passkey.label }}<br>
             {{ form.passkey(size=32, class_='form-fields') }}<br>
             {% for error in form.password2.errors %}
