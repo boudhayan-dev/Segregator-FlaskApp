@@ -31,3 +31,24 @@ Type the following command to pull the git repository using terminal-
 ```
 git pull https://github.com/boudhayan-dev/Segregator-FlaskApp 
 ```
+Navigate inside the folder -
+```
+cd Segregator-FlaskApp
+```
+Set the flask variable -
+```
+set FLASK_APP=run.py
+```
+
+Perform Database migration -
+```
+flask db init
+flask db migrate -m "new db"
+flask db upgrade
+```
+
+Run the flask app -
+```
+flask run
+```
+
