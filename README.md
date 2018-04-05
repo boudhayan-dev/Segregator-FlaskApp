@@ -29,6 +29,7 @@ This repository contains the source code for the Waste Segregator web applicatio
 Type the following command to pull the git repository using terminal-
 
 '''
+
 git pull https://github.com/boudhayan-dev/Segregator-FlaskApp 
 
 '''
