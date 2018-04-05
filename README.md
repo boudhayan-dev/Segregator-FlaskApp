@@ -33,7 +33,7 @@ git pull https://github.com/boudhayan-dev/Segregator-FlaskApp
 ```
 Navigate inside the folder -
 ```
-cd Segregator-FlaskApp
+cd Segregator-FlaskApp/Segregator
 ```
 Set the flask variable -
 ```
