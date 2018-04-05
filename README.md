@@ -15,3 +15,7 @@ This repository contains the source code for the Waste Segregator web applicatio
 </li>
 
 <h2> Requirements </h2>
+- Python 3
+- Flask
+- Flask plugins - SQLAlchemy , migrate, wtforms, login
+- HTML/CSS, Bootstrap.
