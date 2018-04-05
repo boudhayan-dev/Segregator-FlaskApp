@@ -15,6 +15,7 @@ This repository contains the source code for the Waste Segregator web applicatio
 </li>
 
 <h2> Requirements </h2>
+
 * Python 3
 
 * Flask
@@ -22,3 +23,12 @@ This repository contains the source code for the Waste Segregator web applicatio
 * Flask plugins - SQLAlchemy , migrate, wtforms, login
 
 * HTML/CSS, Bootstrap.
+
+<h2> Installation </h2>
+
+Type the following command to pull the git repository using terminal-
+
+'''
+git pull https://github.com/boudhayan-dev/Segregator-FlaskApp 
+
+'''
