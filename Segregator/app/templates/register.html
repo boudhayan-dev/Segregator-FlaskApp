@@ -33,6 +33,12 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
             <br>
+            {{ form.password2.label }}<br>
+            {{ form.password2(size=32, class_='form-fields') }}<br>
+            {% for error in form.password2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br>
             {{ form.passkey.label }}<br>
             {{ form.passkey(size=32, class_='form-fields') }}<br>
             {% for error in form.password2.errors %}
@@ -43,7 +49,8 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <span id='submit-field'><p >{{ form.submit(class_='submit-button-login') }}</p></span>
+            
+            <span id='submit-field'><p >{{ form.hidden_tag() }}{{ form.submit(class_='submit-button-login') }}</p></span>
         </div>
     </div>
     </form>

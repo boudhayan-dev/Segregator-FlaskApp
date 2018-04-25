@@ -1,8 +1,9 @@
 
 #info{
-	font-size: 20px;
+	font-size: 23px;
 	font-family: 'Saira',sans-serif;
 	text-align: center;
+	color: white;
 }
 
 
@@ -10,4 +11,20 @@
     width: auto !important;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.folder-link {
+	color: #1cd1ff;
+}
+
+table tr.row-hover:hover{
+	background-color: black;
+
+}
+table tr.row-hover:hover .folder-link{
+	color:white;
+}
+
+table tr.row-hover:hover .folder-link:hover{
+	color: #19ff4b;
 }

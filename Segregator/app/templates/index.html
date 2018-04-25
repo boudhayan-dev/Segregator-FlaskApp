@@ -3,18 +3,14 @@
 
 {% block content %}
 
-<div class="container ">
-	<hr>
-	<div class="row">
-		<div class="jumbotron ">
-		  <h1>AUTOMATIC WASTE SEGREGATOR</h1>
+<div class="container main-body">
 
-		</div>
-	</div>
 	
 	<div class="row">
-		<div class="col-md-12" id="introduction">
-			
+		<div class="col-md-6" id="introduction">
+				<hr>
+				<br>
+				<br>
 				<p>The exponential growth of waste materials due to
 				rapid urbanization has put an immense pressure on our
 				environment. Improper handling of waste materials and their
@@ -27,45 +23,62 @@
 				items can greatly improve its efficiency and at the same time
 				reduce the health hazards associated with manual segregation.</p>
 		</div>
+			<div class="col-md-4 ">
+			<hr>
+			<br>
+			<iframe width="540" height="440" src="https://www.youtube.com/embed/dU-jUhHxNQU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="jumbotron ">
+		  <h1>AUTOMATIC WASTE SEGREGATOR</h1>
+
+		</div>
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
-			<img src="{{ url_for('static',filename='styles/device.jpg') }}" width=240px height=280px>
+		<div class="col-md-5">
+			<img src="{{ url_for('static',filename='styles/dustbin_index.jpg') }}" width=480px height=320px>
 
 		</div>
-		<div class="col-md-9 col-lg-9 col-sm-9 col-xs-9" id="introduction">
+		<div class="col-md-6 col-md-offset-1" id="introduction">
+			<hr>
 			<p>This project provides a solution that can detect, identify and
 			segregate waste items into biodegradable and non-biodegradable
 			categories without any human assistance. The Automatic waste
-			segregator is a centrally partitioned movable bin that travels in
-			the given area of interest and picks up any waste item in its path. It uses
-			Image Processing to detect an object and then picks it up using a
-			robotic arm attached to its body. The robotic arm places the
-			object on the rotating flap which is attached to the two compartments.
+			segregator is a centrally partitioned bin. It uses
+			Image Processing to detect an object that is thrown into it's flap.
 			Machine Learning is used to identify the category of the waste
 			item. The waste item is then deposited into its respective
-			compartment by the rotating flap. The system continues in its
-			path until the end of the area is reached.</p>
-			<p>
-				The prototype demonstration can be see in the video below.
-			</p>
+			compartment by the rotating the flap. </p> 
+			
 		</div>
 			
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-7 col-lg-7 col-sm-7 col-xs-7" id="introduction">
-			<p>The project uses Machine Learning to identify the waste items. A brief introduction about the Machine Learning technology is provided in the video below.
+		<div class="col-md-6 " id="introduction">
+			<hr>
+			<p>The project uses Machine Learning to identify the waste items. A brief introduction about the Machine Learning technology is provided in the video below.<br><br>
+			The system is monitored in real-time using a web server built using Flask. Navigate to <strong>Dashboard</strong> section to view the operation of the system in real-time.
 			</p>
-			<iframe width="520" height="225" src="https://www.youtube.com/embed/yofjFQddwHE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+			
 		</div>
-		<div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
-
-			<iframe src="https://www.youtube.com/embed/7YgnJELpMyE?ecver=2" width="450" height="305" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		<div class="col-md-6">
+			<hr>
+			<br>
+			<iframe width="550" height="245" src="https://www.youtube.com/embed/yofjFQddwHE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+			
+			<br><br>
 		</div>
 	</div>
+	<hr>
 	
 </div>
+
+
+
+
 
 {% endblock %}

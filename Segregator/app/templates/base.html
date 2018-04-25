@@ -30,13 +30,13 @@
     <div class="navbar-header">
         
             {% if current_user.username %}
-            <a class="navbar-brand" href="{{ url_for('index') }}" ><span id="header"><span id="logo"><strong>Welcome </strong></span>{{ current_user.username|striptags }} !</span></a>
+            <a class="navbar-brand nav-custom" href="{{ url_for('index') }}" ><span id="header"><span id="logo"><strong>Welcome </strong></span id="header">{{ current_user.username|striptags }} !</span></a>
             {% else %}
-            <a class="navbar-brand" href="{{ url_for('index') }}"><span id="header"><span id="logo"><strong>Welcome </strong></span></span></a>
+            <a class="navbar-brand nav-custom" href="{{ url_for('index') }}"><span id="header"><span id="logo"><strong>Welcome </strong></span></span></a>
             {% endif %}
     </div>
     <ul class="nav navbar-nav navbar-right " >
-            <li><a class="nav navbar-nav" href="{{ url_for('index') }}"><span class="glyphicon glyphicon-home blue"> <span id="header"><strong>Home</strong></span></a></li>
+            <li class="nav-custom"><a class="nav navbar-nav" href="{{ url_for('index') }}"><span class="glyphicon glyphicon-home "> <span id="header"><strong>Home</strong></span></a></li>
             <li><a class="nav navbar-nav" href="{{ url_for('dashboard') }}"><span class="glyphicon glyphicon-dashboard"> <span id="header"><strong>Dashboard</strong></span></a></li>
             <li><a class="nav navbar-nav" href="{{ url_for('about') }}"><span class="glyphicon glyphicon-user"> <span id="header"><strong>About Us</strong></span></a></li>
             <li><a class="nav navbar-nav" href="{{ url_for('feedback') }}"><span class="glyphicon glyphicon-pencil"> <span id="header"><strong>Feedback</strong></span></a></li>

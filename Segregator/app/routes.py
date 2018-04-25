@@ -68,8 +68,10 @@ def register():
 	if current_user.is_authenticated:
 		return redirect(url_for('index'))
 	form = RegistrationForm()
+	regpass=app.config['REGISTRATION_KEY']
+	print(regpass)
 	if form.validate_on_submit():
-		if form.passkey.data==app.config['REGISTRATION_KEY']:
+		if form.passkey.data==regpass:
 			user = User(username=form.username.data, email=form.email.data)
 			user.set_password(form.password.data)
 			db.session.add(user)
