@@ -3,13 +3,27 @@
 	font-family: 'Saira', sans-serif;
 	text-align: justify;
 	color: black;
-	font-style: bold, italic;
 	
 }
 #team{
 	text-align: center;
 }
-#student-table{
+table #student-table{
 	margin-left: 50px;
-	margin-right: 50px;
+	margin-right: 150px;
+	
+}
+
+#student-table thead th{
+	text-align: center;
+}
+#student-table tr td{
+	text-align: center;
+	vertical-align: center;
+	padding-top: 30px;
+}
+
+ul li .topic-list{
+	color: black;
+	font-style: bold;
 }

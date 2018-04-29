@@ -6,12 +6,20 @@
 .submit-button{
 	width: 100px;
 	height: 50px;
-	border-radius: 15px;
-	background-color: #6cd8bd;
+	border-radius: 12px;
+	background-color: black;
 	font-family: 'Saira',sans-serif;
 	text-align: center;
 	font-size: 25px;
 	font-style: bold;
+	font-weight: 600;
+	color: white;
+
+}
+
+.submit-button:hover{
+	background-color: white;
+	color: green;
 }
 #username{
 	font-family: 'Saira',sans-serif;
@@ -24,6 +32,25 @@
 }
 
 #pagination{
-	font-size: 30px;
-	margin-left: 80%;
+	font-size: 25px;
+	color: black;
+}
+
+table tr td#user-space{
+	background-color: black;
+	color: white;
+
+}
+table tr td#user-space:hover{
+	background-color:#01684c;
+
+}
+
+td{
+	width:33%;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 1em;
 }

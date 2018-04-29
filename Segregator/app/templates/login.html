@@ -3,8 +3,9 @@
 {% block content %}
 
 
-<br><br><hr>
-<div class="container">
+<br><br><br><br><br><hr>
+<div class="container main-body">
+	<br><br><hr>
 	<div class="row">
 		<div class="col-md-12">
 			<h1 id="signin">
@@ -45,7 +46,7 @@
 	</form>
 	<div class="row">
 		<div class="=col-md-12">
-			<span id='submit-field'><p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p></span>
+			<span id='submit-field'><p><strong>New User? </strong><a href="{{ url_for('register') }}" id="new-user-link">Click to Register!</a></p></span>
 		</div>
 	</div>
 	

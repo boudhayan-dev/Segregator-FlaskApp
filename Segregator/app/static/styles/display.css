@@ -22,3 +22,9 @@
         }
     }
 }
+
+div ul li.object-properties{
+    height: 80px;
+    font-size: 28px;
+    color: white;
+}

@@ -1,30 +1,39 @@
 .jumbotron{
 	text-align: center;
 	font-family: 'Saira', sans-serif;
-	background-color:#ff002e;
-	color: white;
-}
+	background-color:#48ba94/*#18cca7/*#ff002e*/;
 
+}
 
 .jumbotron:hover{
 	background-color:white ;
-	color:#ff002e;
+}
+
+.jumbotron:hover #hdr{
+	color: #1a9977;
 }
 #introduction{
 	font-size: 21px;
 	font-family: 'Saira', sans-serif;
 	text-align: justify;
-	color: white;
+	color: black;
 	font-style: bold;
 
 }
 
-body{
-	background-color:#1e0101;
+body {
+	background-color:#e5fce9;
 }
 
+
 .main-body{
-	background-color:#07070c ;
+	background-color:#d3ede4;
+}
+
+#hdr{
+	font-size: 65px;
+	color: black;
+	font-style: bold;
 }
 
 

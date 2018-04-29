@@ -30,7 +30,7 @@
     <div class="navbar-header">
         
             {% if current_user.username %}
-            <a class="navbar-brand nav-custom" href="{{ url_for('index') }}" ><span id="header"><span id="logo"><strong>Welcome </strong></span id="header">{{ current_user.username|striptags }} !</span></a>
+            <a class="navbar-brand nav-custom" href="{{ url_for('index') }}" ><span id="header"><span id="logo"><strong>Welcome </strong></span id="header"><strong>{{ current_user.username|striptags }} !</strong></span></a>
             {% else %}
             <a class="navbar-brand nav-custom" href="{{ url_for('index') }}"><span id="header"><span id="logo"><strong>Welcome </strong></span></span></a>
             {% endif %}

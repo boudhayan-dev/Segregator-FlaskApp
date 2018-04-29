@@ -1,23 +1,38 @@
 #header{
-	font-size: 19px;
+	font-size: 22px;
 	font-family: 'Saira', sans-serif;
-	color: #ffffff;
+	color:black/* #ffffff*/;
 }
-#logo{
-	font-size: 50px;
-	color: #ffffff;
+
+#header:hover{
+	color:white;
+}
+a span#logo{
+	font-size: 60px;
+	color:black/*#ffffff*/;
+}
+#logo:hover{
+	color: white;
 }
 
 .navbar-custom{
-	background-color:#ff002e;
+	background-color:#4fcca8 /*#ff002e*/;
+	height: 58px;
 }
 .nav-custom:hover{
-	background-color: black;
+	background-color:#0a301e;
 }
-ul.nav a:hover{
-	background-color: black;
+ul.nav a:hover {
+	background-color:#0a301e;
+	color: black;
 }
-.glyphicon{
-	color: #ffffff;
 
+
+.glyphicon{
+	color: black/*#ffffff*/;
+
+}
+
+.glyphicon:hover {
+	color: white;
 }

@@ -13,8 +13,19 @@ import os,math
 def display():
 	filename=request.args.get('file')
 	foldername=request.args.get('folder')
+	image_info=filename.split('_')
+	date_info=image_info[0][1:]
+	time_info=image_info[1]
+	bio_info=image_info[2][0:7]
+	nonbio_info=image_info[3][0:7]
+	category=image_info[4]
+	if category=="nonbio":
+		category="red"
+	else:
+		category="green"
+
 	filename=foldername+filename
-	return render_template('display.html',files=filename)
+	return render_template('display.html',files=filename,date_info=date_info,time_info=time_info,bio_info=bio_info,nonbio_info=nonbio_info,category=category)
 
 
 @app.route('/dashboard')
@@ -98,7 +109,8 @@ def feedback():
 		flash('Message sent succesfully!')
 		return redirect(url_for('feedback'))
 	page = request.args.get('page', 1, type=int)
-	msgs = Feedback.query.order_by(Feedback.timestamp.desc()).paginate(page,6 , False) # 6 is the posts per page
+	msgs = Feedback.query.order_by(Feedback.timestamp.desc()).paginate(page,9 , False) # 6 is the posts per page
 	next_url = url_for('feedback', page=msgs.next_num) if msgs.has_next else None
 	prev_url = url_for('feedback', page=msgs.prev_num) if msgs.has_prev else None
-	return render_template('feedback.html',form=form,posts=msgs.items,next_url=next_url, prev_url=prev_url)
+	rows=math.ceil(len(msgs.items)/3)
+	return render_template('feedback.html',form=form,posts=msgs.items,next_url=next_url, prev_url=prev_url,rows=rows)

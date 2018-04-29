@@ -30,4 +30,4 @@ class RegistrationForm(FlaskForm):
 
 class FeedbackForm(FlaskForm):
     feedback = TextAreaField('Feedback', validators=[Length(min=0, max=500)])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Post')
