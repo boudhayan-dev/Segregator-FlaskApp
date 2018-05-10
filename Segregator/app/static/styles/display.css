@@ -24,7 +24,8 @@
 }
 
 div ul li.object-properties{
-    height: 80px;
-    font-size: 28px;
+    height: 90px;
+    font-size: 25px;
     color: white;
+    font-family: 'Saira',sans-serif;
 }

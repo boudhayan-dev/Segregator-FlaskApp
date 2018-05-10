@@ -43,7 +43,7 @@ def image(im):
 	image_src=[im+'/'+i for i in  os.listdir(os.path.join(app.static_folder,im))]
 	rows=math.ceil(len(image_src)/3)
 	print(image_src)
-	return render_template('dashboard.html',title='Welcome',images=image_src,rows=rows)
+	return render_template('dashboard.html',title='Welcome',images=image_src,rows=rows,image_date=im)
 
 
 @app.route('/', methods=['GET', 'POST'])

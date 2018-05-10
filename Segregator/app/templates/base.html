@@ -61,8 +61,10 @@
         {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
-
-
-
+<script type="text/javascript">
+    setInterval(function(){
+   $('.image-area').load("{{ url_for('image',im=image_date) }}");
+}, 5000);
+</script>
 </body>
 </html>
