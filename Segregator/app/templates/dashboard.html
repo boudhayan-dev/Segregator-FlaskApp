@@ -72,17 +72,56 @@
 		</div>
 	</div>
 
+<script type="text/javascript">
+
+	var first_time = 0;
+	var current_count = 0;
+	var total_count = 0;
+
+	function update(){
+		
+	        if (first_time === 0){
+	            current_count = $('td').length;
+	            total_count = current_count;
+	            first_time = 1;
+	            //var txt = $("<p class='notify'></p>").text("No new images");
+	            $('body').append("<p class='notify'><br>Up to date !</p>");
+	            $('.notify').css({'color':'#06661f','font-size':'30px','font-family': "'Saira',sans-serif",'font-style':'bold' });
+	            $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+	            setTimeout(function() { $(".notify").text(""); }, 5000);
+
+	        }
+	        else {
+	            total_count = $('td').length;
+	            if (total_count>current_count){
+	                $('.notify').text(total_count-current_count + " new image added !");
+	                
+	                $('.notify').css({'color':'#bc0041','font-size':'30px','font-family': "'Saira',sans-serif",'font-style':'bold' });
+	                $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+	                //alert(total_count-current_count + ' images added !');
+	                current_count = total_count;
+	                setTimeout(function() { $(".notify").text(""); }, 5000);
+
+	            }
+	        }
+	        
+	}
+		//setInterval(function(){ $('.image-area').load("{{ url_for('image',im=image_date) }}"); update(); }, 2000);
+		setInterval(function(){
+    $('.image-area').load("{{ url_for('image',im=image_date) }}", function() {
+       update();
+    }); 
+}, 2000);
+    
+</script>
+
 {% endif %}
 
 
 </div>
 </div>
 
-<script type="text/javascript">
-	setInterval(function(){
-   $('.image-area').load("{{ url_for('image',im=image_date) }}");
-}, 5000);
-</script>
+
 
 {% endblock %}
 
