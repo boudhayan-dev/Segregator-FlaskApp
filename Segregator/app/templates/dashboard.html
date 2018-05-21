@@ -106,7 +106,7 @@
 	            //var txt = $("<p class='notify'></p>").text("No new images");
 	            
 	            var dialog = bootbox.dialog({
-				    message: '<br><p class="text-center" style="font-size:30px; font-family: "Saira",sans-serif;">    System up to date !</p><br>',
+				    message: '<br><p class="text-center" style="font-size:28px; font-family: "Saira",sans-serif;"><i class="fa fa-spinner fa-spin" style="font-size:24px"></i>    Syncing</p><br>',
 				    closeButton: false
 				});
 				setTimeout(function() { dialog.modal('hide'); }, 2000);
@@ -127,7 +127,7 @@
 	            	var increase = String(total_count-current_count);
 	                //$('.notify').text(total_count-current_count + " new image added !");
 	                var dialog = bootbox.dialog({
-					    message: '<br><p class="text-center" style="font-size:30px; font-family: "Saira",sans-serif;">'+'    ' + increase +' images added !</p><br>',
+					    message: '<br><p class="text-center" style="font-size:28px; font-family: "Saira",sans-serif;"><i class="fas fa-bell"></i>'+'    ' + increase +' images added !</p><br>',
 					    closeButton: false
 					});
 					setTimeout(function() { dialog.modal('hide'); }, 2000);
@@ -162,4 +162,6 @@
 
 
 {% endblock %}
+
+
 
