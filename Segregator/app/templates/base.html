@@ -13,8 +13,15 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/display.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/feedback.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/login.css') }}">
+
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    
     <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+
+    
 	{% if title %}
 	<title>{{ title }}</title>
 	{% else %}
@@ -60,11 +67,10 @@
         </ul>
         {% endif %}
         {% endwith %}
+
         {% block content %}{% endblock %}
-<script type="text/javascript">
-    setInterval(function(){
-   $('.image-area').load("{{ url_for('image',im=image_date) }}");
-}, 5000);
-</script>
+
+        
+
 </body>
 </html>
